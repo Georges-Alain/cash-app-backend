@@ -4,6 +4,7 @@ const {body, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+
 exports.user_create = [
     body("first_name")
            .trim()
