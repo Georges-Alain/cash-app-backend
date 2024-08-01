@@ -46,7 +46,7 @@
  *      type: string
  *     created:
  *      type: string
- *      format: date 
+ *      format: date
  *    example:
  *      id: 664efcd272cfcc7b319f9531
  *      first_name: Maximilien
@@ -58,13 +58,13 @@
  *      email: maxtamko74@gmail.com
  *      phone_number: 654454353
  *      password: #mypassword123$
- *      pin: 020394 
+ *      pin: 020394
  */
 /**
  * @swagger
  * components:
  *  schemas:
- *   creationMessage: 
+ *   creationMessage:
  *    type: object
  *    properties:
  *     message:
@@ -86,7 +86,7 @@
  * @swagger
  * components:
  *  schemas:
- *   login: 
+ *   login:
  *    type: object
  *    properties:
  *     message:
@@ -104,7 +104,6 @@
  *    password:
  *     type:string
  */
-
 
 const express = require("express");
 
@@ -139,15 +138,15 @@ const userController = require("./controller");
  *              email: maxtamko74@gmail.com
  *              phone_number: '654454353'
  *              password: '#mypassword123$'
- *              pin: '020394' 
+ *              pin: '020394'
  *     responses:
  *      '201':
  *       description: The successful creation message.
- *       content: 
+ *       content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/creationMessage'
- *            
+ *
  *      '400':
  *       description: Validation errors
  *       content:
@@ -179,7 +178,7 @@ const userController = require("./controller");
  *      responses:
  *        '200':
  *         description: The successful login token.
- *         content: 
+ *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/successfulLogin'
@@ -187,10 +186,10 @@ const userController = require("./controller");
  *                message: successful login
  *        '401':
  *         description: wrong credentials error
- *         content: 
+ *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/errorsMessages' 
+ *               $ref: '#/components/schemas/errorsMessages'
  */
 
 /**
@@ -207,11 +206,11 @@ const userController = require("./controller");
  *      responses:
  *        '200':
  *         description: User's information
- *         content: 
+ *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/User'
- *    
+ *
  */
 
 router.post("/user/create", userController.user_create);
@@ -227,7 +226,6 @@ router.delete("/user/delete", verifyToken, userController.user_delete);
 router.get("/user", verifyToken, userController.get_user_by_id);
 
 router.get("/user/find", verifyToken, userController.get_user_by_email);
-
 
 router.put("/user/update", verifyToken, userController.user_update);
 
